@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script>
+//		// 融合一个对象的方法
+//		var extend=function(target,souce){
+//			for(var propo in souce){
+//				target[propo]=souce[propo]
+//			}
+//			return target
+//		}
+////		console.log(extend({"name":"Jack"},{"age":15}))
+//		// 多个的混合
+//		var mix=function(){
+//			var i=1,
+//				arg,
+//				length=arguments.length
+//				for(;i<length;i++){
+//					for(var prop in arguments[i]){
+//						arguments[0][prop]=arguments[i][prop]
+//					}
+//				}
+//				return arguments[0]
+//		}
+//		console.log(mix({"name":"Jack"},{"age":15},{"class":"1636"},{"year":2016}))
+//		//如果是多继承的话就应该这么写，把这个方法挂到原型上，这样拓展的方法就会全部挂在了实例对象上
+//		Object.prototype.mix=function(){
+//			var i=0,
+//				arg,
+//				length=arguments.length;
+//				for(;i<length;i++){
+//					for(var prop in arguments[i]){
+//						this[prop]=arguments[i][prop]
+//					}
+//				}
+//		}
+		//深度拷贝就是一个递归
+		function extend(){
+			var i=1,
+				len=arguments.length,
+				res={}
+				for(;i<len;i++){
+			for(var prop in arguments[i]){
+				arguments[0][prop]= (typeof arguments[i][prop]=="object")?extend(res,arguments[i][prop]):arguments[i][prop]
+			}
+				}
+			return arguments[0]
+		}
+	extend({"name":"Jack"},{"age":15,"sayHello":function(){
+			console.log('hello')	
+		}},{"class":"1636"},{"year":2016,"arr":[1,2,3]}).sayHello()
+
+		
+</script>
+	<body>
+	</body>
+</html>

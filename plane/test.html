@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box{display: none;}
+		</style>
+		<script>
+			var Book=(function(){
+				var bookNumb=0;
+				function checkBook(name){
+					if(name!="js"){
+						console.log('错误书籍')
+					}
+				}
+				return function _book(newId,newName,newPrice){
+					var bookId,price                                     
+					function chackId(id){
+						//
+					}
+					this.getName=function(){}
+					this.getPrice=function(){}
+					this.setName=function(){}
+					this.setPrice=function(){}
+					this.id=newId;
+					this.copy=function(){}
+					bookNumb++
+					if(bookNumb>2){
+						throw new Error('超过两本')
+					}
+					checkBook(newName)
+					this.setName(name)
+					this.setPrice(newPrice)
+				}
+				_book.prototype={
+					//静态共有属性
+					isJSBook:false,
+					display:function(){}
+				}
+				//返回类
+				return _book
+			})();
+			var b1=new Book(1,"js",18)
+				console.log(b1.__proto__.constructor)
+			var test=function (){
+				var a=123
+			}
+				console.log(test.a)
+				test.a=123
+		</script>
+	</head>
+	<body>
+			<div class="box">
+				
+			</div>
+	</body>
+</html>

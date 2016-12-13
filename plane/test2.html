@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+	<script>
+			//将要作为原型的一个对象
+		 var book={
+		 		name:"js",
+		 		alikebook:["html","csss"]
+		 }
+			//原型式继承，其实就是对类式集成的一次封装
+		 function inherit(o){
+		 //创建一个过度类，类的内容为空，就是为了让new操作时省去了构造函数的开销问题
+		 		function F(){}
+		 		F.prototype=o
+		 		return new F()
+		 }
+		 //寄生式集成，其实就是对原型式集成的再一次封装，return 原型式返回对象的拓展后的对象
+		 function creatObject(){
+			 var intence1=inherit(book)
+		 				intence1.getName=function(){
+		 					console.log('aa')
+		 				}
+		 				return intence1 
+		 }
+	</script>
+</head>
+<body>
+ 
+</body>
+</html>
